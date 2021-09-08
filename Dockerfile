@@ -3,6 +3,8 @@ FROM node:16 as build
 WORKDIR /usr/build
 COPY . .
 
+ENV HUSKY=0
+
 RUN npm ci --unsafe-perm
 RUN npm run build
 RUN npm prune --production

@@ -43,6 +43,7 @@ jobs:
       - run:
           name: install dockerrm
           command: |
+            mkdir -p ~/.docker/cli-plugins
             curl -L --output ~/.docker/cli-plugins/docker-pushrm "https://github.com/christian-korneck/docker-pushrm/releases/download/v1.8.0/docker-pushrm_linux_amd64"
             chmod a+x ~/.docker/cli-plugins/docker-pushrm
       - run:

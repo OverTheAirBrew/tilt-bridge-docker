@@ -4,7 +4,7 @@
     "target": "es6",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "sourceMap": false,
+    "sourceMap": true,
     "declaration": false,
     // "strictNullChecks": true,
     "noUnusedLocals": true,
