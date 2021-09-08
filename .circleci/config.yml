@@ -1,6 +1,7 @@
 version: 2
 jobs:
   build:
+    working_directory: /overtheairbrew
     docker:
       - image: 'circleci/node:16'
     environment:
@@ -33,13 +34,20 @@ jobs:
           command: |
             echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
             npm run semantic-release
+      - persist_to_workspace:
+          root: /overtheairbrew
+          paths:
+            - README.md
 
   push-docker-readme:
+    working_directory: /overtheairbrew
     docker:
       - image: 'circleci/node:16'
     steps:
       - setup_remote_docker:
           version: 20.10.2
+      - attach_workspace:
+          at: /overtheairbrew
       - run:
           name: install dockerrm
           command: |
