@@ -43,21 +43,20 @@ jobs:
             npm run semantic-release
 
   push-docker-readme:
-    build:
-      docker:
-        - image: 'circleci/node:16'
-      steps:
-        - setup_remote_docker:
-            version: 20.10.2
-        - run:
-            name: install dockerrm
-            command: |
-              curl -L --output ~/.docker/cli-plugins/docker-pushrm "https://github.com/christian-korneck/docker-pushrm/releases/download/v1.8.0/docker-pushrm_linux_amd64"
-              chmod a+x ~/.docker/cli-plugins/docker-pushrm
-        - run:
-            name: update readme
-            command: |
-              DOCKER_USER=$DOCKER_USERNAME DOCKER_PASS=$DOCKER_PASSWORD docker pushrm overtheairbrew/tilt-bridge
+    docker:
+      - image: 'circleci/node:16'
+    steps:
+      - setup_remote_docker:
+          version: 20.10.2
+      - run:
+          name: install dockerrm
+          command: |
+            curl -L --output ~/.docker/cli-plugins/docker-pushrm "https://github.com/christian-korneck/docker-pushrm/releases/download/v1.8.0/docker-pushrm_linux_amd64"
+            chmod a+x ~/.docker/cli-plugins/docker-pushrm
+      - run:
+          name: update readme
+          command: |
+            DOCKER_USER=$DOCKER_USERNAME DOCKER_PASS=$DOCKER_PASSWORD docker pushrm overtheairbrew/tilt-bridge
 
 workflows:
   version: 2
