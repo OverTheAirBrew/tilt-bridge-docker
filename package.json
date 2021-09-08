@@ -1,0 +1,47 @@
+{
+  "name": "@overtheairbrew/tilt-bridge-docker",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "prebuild": "del '**/*.{js,map,d.ts}' '!node_modules' '!commitlint.config.js'",
+    "build": "tsc",
+    "prepare": "husky install",
+    "semantic-release": "semantic-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/overtheairbrew/tilt-bridge-docker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/overtheairbrew/tilt-bridge-docker/issues"
+  },
+  "homepage": "https://github.com/overtheairbrew/tilt-bridge-docker#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@overtheairbrew/semantic-release-docker-buildx": "^1.0.4",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/github": "^7.2.3",
+    "@semantic-release/release-notes-generator": "^9.0.3",
+    "@types/node": "^16.7.13",
+    "del-cli": "^4.0.1",
+    "husky": "^7.0.0",
+    "lint-staged": "^11.1.1",
+    "prettier": "^2.3.2",
+    "reflect-metadata": "^0.1.13",
+    "semantic-release": "^17.4.5",
+    "typedi": "^0.10.0",
+    "typescript": "^4.3.5"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "dependencies": {
+    "@overtheairbrew/tilt-bridge": "^1.0.15"
+  }
+}
