@@ -40,6 +40,6 @@
     ]
   },
   "dependencies": {
-    "@overtheairbrew/tilt-bridge": "^1.0.17"
+    "@overtheairbrew/tilt-bridge": "^1.0.18"
   }
 }

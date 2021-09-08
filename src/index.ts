@@ -4,9 +4,6 @@ new TiltBridge({
   logging: {
     level: process.env.LOG_LEVEL || 'error',
   },
-  database: {
-    path: process.env.DATABASE_PATH || __dirname,
-  },
   configs: [
     {
       type: 'ota-homebrew',
