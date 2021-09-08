@@ -26,17 +26,6 @@ jobs:
             docker buildx create --name multiarch-builder --driver docker-container --use tls-environment
             docker buildx inspect --bootstrap
       - run:
-          name: install dockerrm
-          command: |
-            curl -L --output ~/.docker/cli-plugins/docker-pushrm "https://github.com/christian-korneck/docker-pushrm/releases/download/v1.8.0/docker-pushrm_linux_amd64"
-            chmod a+x ~/.docker/cli-plugins/docker-pushrm
-      - run:
-          name: install
-          command: npm ci
-      - run:
-          name: build
-          command: npm run build
-      - run:
           name: release
           command: |
             echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
