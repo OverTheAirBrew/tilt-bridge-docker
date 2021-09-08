@@ -26,6 +26,9 @@ jobs:
             docker buildx create --name multiarch-builder --driver docker-container --use tls-environment
             docker buildx inspect --bootstrap
       - run:
+          name: install
+          command: npm ci
+      - run:
           name: release
           command: |
             echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
